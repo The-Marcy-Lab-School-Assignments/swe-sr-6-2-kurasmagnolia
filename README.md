@@ -26,6 +26,65 @@ Imagine you are giving a brief lesson on the Tree data structure to a relatively
 
 ### Response 2
 
+Trees are a data structure that link nodes in a parent/child relationship, in the sense that there are nodes that depend on or come off other nodes. - [freeCodeCamp](https://www.freecodecamp.org/news/data-structures-in-javascript-with-examples/#heading-trees)
+
+A `Tree` represents a hierarchical tree structure, made up of root nodes, edges, parent & child nodes, leaves (leaf nodes), and more.
+
+**Term definitions:**
+
+- `Root`: The top node of a tree, it has no parent
+- `Edge`: Arrows/Lines that connect nodes in a tree together
+- `Child`/`Children`: Nodes linked by a parent node
+- `Parent`: A node that links to another node
+- `Sibling`: Nodes that share the same parent
+- `Leaf Nodes`: Nodes at the end of branches with no children
+- `Internal Nodes`: Nodes that have at least one child
+- `Depth`: The distance between the root node and a given node
+- `Height`: THe length of the longest path from a node to a leaf node - maximum `depth`
+
+The code example below shows the creation of a Tree. We create a class called `TreeNode` to represent a single node in the tree. Each node has a value (`this.value`), a left pointer (`this.left`), and a right pointer (`this.right`). We initially set it to `null` until we give it a value.
+
+Then, we build out the tree:
+
+- We create a root node with the value `1`
+- We assign children to it:
+  - Left child → `2`
+  - Right child → `3`
+- Then, we add more children:
+  - `2` has left child `4` and right child `5`.
+  - `3` has left child `6` and right child `7`.
+
+_Code example:_
+
+```JavaScript
+class TreeNode {
+    constructor(value) {
+        // data (value), left, right
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+// creating the Tree
+const root = new TreeNode(1);
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+root.right.left = new TreeNode(6);
+root.right.right = new TreeNode(7);
+
+/*
+    the Tree looks like this:
+          1
+         / \
+        2   3
+       / \ / \
+      4  5 6  7
+*/
+```
+
 ## Prompt 3
 
 Any iterative function can be written recursively. Provide an example of an iterative function and the same function written recursively. Then, explain the benefits and/or drawbacks of each approach.
